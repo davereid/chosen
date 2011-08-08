@@ -879,7 +879,7 @@
     };
 
     Chosen.prototype.winnow_results = function() {
-      var found, option, part, parts, regex, regexAnchor, result, result_id, results, searchText, selected, startpos, text, zregex, _i, _j, _len, _len1, _ref1;
+      var exactRegex, found, option, part, parts, regex, regexAnchor, result, result_id, results, searchText, selected, startpos, text, zregex, _i, _j, _len, _len1, _ref1;
       this.no_results_clear();
       results = 0;
       selected = false;
@@ -887,6 +887,7 @@
       regexAnchor = this.search_contains ? "" : "^";
       regex = new RegExp(regexAnchor + searchText.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&"), 'i');
       zregex = new RegExp(searchText.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&"), 'i');
+      exactRegex = new RegExp('^' + searchText + '$', 'i');
       _ref1 = this.results_data;
       for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
         option = _ref1[_i];
