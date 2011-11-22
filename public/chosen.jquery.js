@@ -706,7 +706,6 @@
 
     Chosen.prototype.search_results_mouseup = function(evt) {
       var target;
-      return false;
       target = $(evt.target).hasClass("active-result") ? $(evt.target) : $(evt.target).parents(".active-result").first();
       if (target.length) {
         this.result_highlight = target;
@@ -1001,16 +1000,11 @@
 
     Chosen.prototype.select_append_option = function(options) {
       var option, terms;
-      option = $('<option />', {
-        value: options.value
-      }).text(options.text);
+      option = $('<option />', options).attr('selected', 'selected');
       this.form_field_jq.append(option);
       terms = this.search_field.val();
       this.form_field_jq.trigger("liszt:updated");
-      this.search_field.val(options.text);
-      this.search_field.trigger("keyup");
-      this.form_field_jq.trigger("change");
-      return this.result_select();
+      return this.search_field.trigger('focus');
     };
 
     Chosen.prototype.no_results_clear = function() {
