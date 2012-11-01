@@ -593,10 +593,10 @@ Copyright (c) 2011 by Harvest
         this.search_choices.find("li.search-choice").remove();
       } else if (!this.is_multiple) {
         this.selected_item.addClass("chzn-default").find("span").text(this.default_text);
-        if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold) {
-          this.container.addClass("chzn-container-single-nosearch");
-        } else {
+        if (this.create_option && !this.disable_search) {
           this.container.removeClass("chzn-container-single-nosearch");
+        } else if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold) {
+          this.container.addClass("chzn-container-single-nosearch");
         }
       }
       content = '';
