@@ -580,7 +580,7 @@
         this.search_choices.find("li.search-choice").remove();
       } else if (!this.is_multiple) {
         this.selected_item.addClass("chzn-default").find("span").text(this.default_text);
-        if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold) {
+        if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold && !this.create_option) {
           this.search_field.prop('readonly', true);
           this.container.addClass("chzn-container-single-nosearch");
         } else {
