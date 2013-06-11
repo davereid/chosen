@@ -1033,6 +1033,9 @@
       option = this.new_option_temp.evaluate(options);
       this.form_field.insert(option);
       Event.fire(this.form_field, "liszt:updated");
+      if (typeof Event.simulate === 'function') {
+        this.form_field.simulate("change");
+      }
       return this.result_select();
     };
 

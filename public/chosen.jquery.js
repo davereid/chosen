@@ -1010,6 +1010,7 @@
       this.form_field_jq.append(option);
       terms = this.search_field.val();
       this.form_field_jq.trigger("liszt:updated");
+      this.form_field_jq.trigger("change");
       return this.search_field.trigger('focus');
     };
 
