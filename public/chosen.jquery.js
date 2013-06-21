@@ -1025,6 +1025,8 @@
         if (next_sib) {
           return this.result_do_highlight(next_sib);
         }
+      } else if (this.results_showing && this.create_option) {
+        return this.result_do_highlight(this.search_results.find('.create-option'));
       } else {
         return this.results_show();
       }
