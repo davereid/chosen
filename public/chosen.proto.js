@@ -1135,6 +1135,7 @@
           this.keyup_arrow();
           break;
         case 40:
+          evt.preventDefault();
           this.keydown_arrow();
           break;
       }

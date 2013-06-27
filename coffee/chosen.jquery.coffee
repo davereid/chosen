@@ -564,6 +564,7 @@ class Chosen extends AbstractChosen
         this.keyup_arrow()
         break
       when 40
+        evt.preventDefault()
         this.keydown_arrow()
         break
 
